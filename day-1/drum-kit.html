@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="drum-kit.css">
+    <title>Drum Kit with Vanilla JS</title>
+</head>
+<body>
+    <!-- one big class - all-keys containing 9 classes, of class name key -->
+    <div class="all-keys">
+        <!-- individual keys of class data-key, contain kbd & span tag in them -->
+        <div data-key="65" class="key">
+            <kbd>A</kbd> 
+                <!--  span of inline text textual user input from keyboard, voice input, or other text entry device -->
+            <span class="sound">clap</span>
+            <!-- span element of  class sound, containing TextContent of the  -->
+        </div>
+
+        <div data-key="83" class="key">
+            <kbd>S</kbd>
+            <span class="sound">hihat</span>
+        </div>
+        <div data-key="68" class="key">
+            <kbd>D</kbd>
+            <span class="sound">kick</span>
+        </div>
+
+        <div data-key="70" class="key">
+            <kbd>F</kbd>
+            <span class="sound">openhat</span>
+        </div>
+
+        <div data-key="71" class="key">
+            <kbd>G</kbd>
+            <span class="sound">boom</span>
+        </div>
+
+        <div data-key="72" class="key">
+            <kbd>H</kbd>
+            <span class="sound">ride</span>
+        </div>
+
+        <div data-key="74" class="key">
+            <kbd>J</kbd>
+            <span class="sound">snare</span>
+        </div>
+
+        <div data-key="75" class="key">
+            <kbd>K</kbd>
+            <span class="sound">tom</span>
+        </div>
+
+        <div data-key="76" class="key">
+            <kbd>L</kbd>
+            <span class="sound">tink</span>
+        </div>
+    </div>
+    <!-- audio files of data-key class representing the ASCII numbers of the keys ASDFGHJKL -->
+    <!-- the source file for the .wav sound files is found in the directory sounds -->
+    <audio data-key="65" src="sounds/clap.wav"></audio>
+    <audio data-key="83" src="sounds/hihat.wav"></audio>
+    <audio data-key="68" src="sounds/kick.wav"></audio>
+    <audio data-key="70" src="sounds/openhat.wav"></audio>
+    <audio data-key="71" src="sounds/boom.wav"></audio>
+    <audio data-key="72" src="sounds/ride.wav"></audio>
+    <audio data-key="74" src="sounds/snare.wav"></audio>
+    <audio data-key="75" src="sounds/tom.wav"></audio>
+    <audio data-key="76" src="sounds/tink.wav"></audio>    
+    <script rel="script" src="drumkit.js">
+  const playKeySounds = (keydown) => {
+	const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+	console.log(e.keyCode);
+	const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+	if (!audio) return; // if there audio, stop playing
+	audio.play();
+ };
+    </script>
+</body>
+</html>
+
