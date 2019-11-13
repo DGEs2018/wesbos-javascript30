@@ -39,8 +39,12 @@ function displayMatches() {
 	suggestions.innerHTML = html; // this is called allocation, is something else from declaration
 	console.log(this.value);
 }
+
 const searchInput = document.querySelector('.search');
+console.log(searchInput);
 const suggestions = document.querySelector('.suggestions');
+console.log(suggestions);
+
 // attach add eventlistener to display the matches, whenever typed key goes up or any change is detected
 searchInput.addEventListener('change', displayMatches);
 searchInput.addEventListener('keyup', displayMatches);
