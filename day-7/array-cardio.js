@@ -65,7 +65,7 @@ let invOf1500s = inventors.filter(function(inventor) {
 });
 
 // refactor that in on-line  conditional statement as below.....
-let invOf1500s = inventors.filter((inventor) => inventor.year >= 1500 && inventor < 1600);
+// let invOf1500s = inventors.filter((inventor) => inventor.year >= 1500 && inventor < 1600);
 
 console.log(invOf1500s);
 
@@ -90,17 +90,18 @@ const inventorsSeniorToJunior = inventors.sort(function(a, b) {
 });
 
 // refactored
-const inventorsSeniorToJunior = inventors.sort((a, b) => (a.year > b.year ? 1 : -1));
+// const inventorsSeniorToJunior = inventors.sort((a, b) => (a.year > b.year ? 1 : -1));
 console.table(inventorsSeniorToJunior);
 
 // Array.prototype.reduce()
 
 // 4. How many years did all the inventors live ?
 
-const sumOfYearsLived = inventors.reduce((sum, inventorage) => sum + inventorage);
+// const sumOfYearsLived = inventors.reduce((sum, inventorage) => sum + inventorage);
 
 const sumOfYearsLived = inventors.reduce((sum, inventorage) => {
-	return sum + (inventors.passed - inventor.year);
+	// return sum + (inventors.passed - inventor.year);
+	return sum + inventorage;
 });
 
 // for (let i = 0; i < length) {
@@ -108,7 +109,7 @@ const sumOfYearsLived = inventors.reduce((sum, inventorage) => {
 // }
 console.log(sumOfYearsLived);
 
-// Sort the inventors by years lived
+// 5. sort the inventors by years lived
 
 const orderInventorsByAge = inventors.sort((a, b) => {
 	const lastGuy = a.passed - a.year;
@@ -126,15 +127,17 @@ const orderInventorsByAge = inventors.sort((a, b) => {
 
 const boulevards = document.querySelector('.mw-category'); // get the class name by inspecting at each of the boulevards under the developer's tool
 
-const linkOfBoulevards = Array.from(boulevards.querySelectorAll('a')); // filter out all the links, saying basically pull out anchor element inside the // without array.from, error, is not a function cropped up
+// const linkOfBoulevards = Array.from(boulevards.querySelectorAll('a')); // filter out all the links, saying basically pull out anchor element inside the // without array.from, error, is not a function cropped up
 
-const linksWithDe = linkOfBoulevards
-                                .map(link => link.textContent)
-                                .filter(name => name.includes('de'));
+const linkOfBoulevards = [ ...boulevards.querySelectorAll('a') ];
+
+const linksWithDe = linkOfBoulevards.map((link) => link.textContent).filter((name) => name.includes('de'));
 
 // 7. sort exercise
 // sort the people alphabetically by last time
 
-const orderedByLastname = people.sort(function(lastname) => {
-    console.log(lastname);
-})
+const orderedByLastname = people.sort(function(last, next) {
+	console.log(last);
+	// console.log(next);
+	// const nameSplitted = last.split(',');
+});
