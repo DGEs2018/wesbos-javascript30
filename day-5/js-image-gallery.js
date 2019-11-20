@@ -8,9 +8,9 @@ function onToggleOpen() {
 }
 
 function toggleActive(event) {
-	// console.log(event.propertyName);
+	console.log(event.propertyName);
 	// this.classList.toggle(open-active);
-	if (event.propertyName === 'flex-grow') {
+	if (event.propertyName.includes('flex')) {
 		this.classList.toggle('open-active');
 	}
 }
