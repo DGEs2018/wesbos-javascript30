@@ -1,11 +1,11 @@
 // grab the second-hand element
-const secondHand = document.querySelector('second-hand');
+const secondHand = document.querySelector('.second-hand');
 
 // grab the minute-hand element
-const minuteHand = document.querySelector('minute-hand');
+const minuteHand = document.querySelector('.minute-hand');
 
 // grab the hour-hand element
-const hourHand = document.querySelector('hour-hand');
+const hourHand = document.querySelector('.hour-hand');
 
 function setDate() {
 	// console.log('check to see if this works ?!');
@@ -14,7 +14,8 @@ function setDate() {
 
 	const seconds = now.getSeconds(); // returns the seconds for the specified date, according to local time
 	console.log(seconds);
-	const secondsDegrees = seconds / 60 * 360; // converts seconds to degrees
+
+	const secondsDegrees = seconds / 60 * 360 + 90; // converts seconds to degrees
 	secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
 
 	const mins = now.getMinutes(); // returns the minute in  the specified date according to local time
