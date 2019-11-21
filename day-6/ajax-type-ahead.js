@@ -4,9 +4,11 @@ const endpoint =
 const cities = [];
 
 const prom = fetch(endpoint);
-// console.log(prom)
+// console.log(prom), fetch will return a promise, then is going to return a blob of data
 fetch(endpoint).then((res) => res.json()).then((data) => cities.push(...data));
 
+// everytime we have an argument to push, .push will put that as its own in the array
+// the way to change this array into individual arguments, the spread operator ... is used
 function findMatches(wordToMatch, cities) {
 	return cities.filter((place) => {
 		// here  we need to figure out if the city or state matches what was searched....
