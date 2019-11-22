@@ -142,7 +142,7 @@ const orderedByLastname = people.sort(function(last, next) {
 	// const nameSplitted = last.split(',');
 });
 
-const people = [
+const people2 = [
 	{ name: 'Wes', year: 1988 },
 	{ name: 'Kait', year: 1986 },
 	{ name: 'Irv', year: 1970 },
@@ -157,9 +157,11 @@ const comments = [
 	{ text: 'Nice Nice Nice!', id: 542328 }
 ];
 
+// .every method tests whether all elements in the array pass the test implemented by the provided function, whereas
+// .some method checks whether at least one of the elements passes the test
 // Some and Every Checks
 // Array.prototype.some() // is at least one person 19 or older?
-const isAbove19 = people.some(function(person) {
+const isAbove19 = people2.some(function(person) {
 	// asssigns a variable called isAbove19, for those older than 19
 	const currentYear = new Date().getFullYear();
 	if (currentYear - person.year >= 19) {
@@ -168,15 +170,22 @@ const isAbove19 = people.some(function(person) {
 });
 
 console.log(isAbove19);
-// Array.prototype.every() // is everyone 19 or older?
+// Array.prototype.every() // is everyone 19 or older? below is refactored, watch out I'm using the same name
 
-const isAbove19 = people.some((person) => {
+const isAbove19 = people2.some((person) => {
 	// asssigns a variable called isAbove19, for those older than 19
 	// const currentYear = (new Date()).getFullYear();
 
 	return new Date().getFullYear() - person.year >= 19; // another way to put it, instead of having to define currentYear and put it inside a variable first ;
+	// return currentYear - person.year >= 19;
+});
 
-	return currentYear - person.year >= 19;
+// .every method tests whether all elements in the array pass the test implemented by the provided function, whereas
+// .some method checks whether at least one of the elements passes the test
+
+const allAdults = people2.every(function(person) {
+	return new Date().getFullYear() - person.year >= 19;
+	console.log(allAdults);
 });
 
 // Array.prototype.find()
