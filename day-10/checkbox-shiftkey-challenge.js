@@ -2,12 +2,12 @@ const checkBoxes = document.querySelectorAll('.inbox input[type="checkbox"]');
 
 let lastChecked;
 
-const handleCheck = (e) => {
+function handleCheck(e) {
 	//check if they had the shift key pressed
 
 	// and check that the checkboxes are being checked
 	let inBetween = false;
-	if (e.shiftkey && this.checked) {
+	if (e.shiftKey && this.checked) {
 		console.log(this);
 		// proceed
 
@@ -27,7 +27,7 @@ const handleCheck = (e) => {
 
 	lastChecked = this;
 	// console.log(e);
-};
+}
 
 checkBoxes.forEach((checkbox) => checkbox.addEventListener('click', handleCheck));
 // let lastChecked;
