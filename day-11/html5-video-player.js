@@ -42,7 +42,7 @@ video.addEventListener('play', playAndPause);
 
 video.addEventListener('pause', playAndPause);
 
-video.addEventListener('timeupdate', handleProgressBar);
+video.addEventListener('timeupdate', handleProgressBar); // listen on the video and on thee timeupdate event, trigger the call-back function
 
 toggle.addEventListener('click', togglePlay);
 
@@ -58,14 +58,15 @@ function handleProgressBar() {
 }
 
 function skipFunction() {
-	console.log(skipFunction);
-	console.log(this.dataset.skipFunction);
+	// console.log(skipFunction);
+	console.log(this.dataset.skip);
 	// let currentTime = HTMLMediaElement.currentTime;
 	// need to define to make it fast....player
-	video.currentTime += parseFloat(this.dataset.skipFunction);
+	video.currentTime += parseFloat(this.dataset.skip);
 }
 
 function scrub(e) {
+	const scrubTime = e.offsetX / progress;
 	console.log(e);
 	// const progpercentage = video.currentTime
 }
